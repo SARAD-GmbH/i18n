@@ -1327,6 +1327,7 @@ var
   S: PChar;
   B: PByte;
   I: Integer;
+  buffer: PChar;
 begin
   if not Assigned(@Data) or (Size <= 0) then
   begin
@@ -1334,7 +1335,8 @@ begin
     Exit;
   end;
 
-  SetString(Result, nil, Size * 2);
+  buffer := 'abcdefghijklmnopqrstuvwxyz1234567890';
+  SetString(Result, buffer, Size * 2);
   S := PChar(Result);
   B := PByte(@Data);
   for I := 0 to Size - 1 do
